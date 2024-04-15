@@ -23,6 +23,11 @@ barre_recherche_gauche = soup.find_all('div', attrs= {'id':"sidebar"})
 #soup.find_all pour chercher un element dans la soup
 release_week = soup.find_all('div',attrs={'class':'serieslist pop wpop wpop-weekly'})
 #print(release_week)
+#creer un tableau poru stocker les release_week
+tableau_week = []
+for e in release_week
+    tableau_week.append(e.text)
+print(tableau_week)
 
 
 note = soup.find_all('div',attrs={'class': "rt"})
