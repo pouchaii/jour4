@@ -25,8 +25,8 @@ release_week = soup.find_all('div',attrs={'class':'serieslist pop wpop wpop-week
 #print(release_week)
 #creer un tableau poru stocker les release_week
 tableau_week = []
-for e in release_week
-    tableau_week.append(e.text)
+for e in release_week:
+    tableau_week.append(e.text .upper())
 print(tableau_week)
 
 
@@ -40,13 +40,42 @@ image_scan = soup.find_all(attrs={'div class':'imgseries'})
 tout_les_notes = soup.find_all('div',attrs={'class':"numscore"})
 #print(tout_les_notes)
 ## je veux selectionner la liste des mangas du week-end et leurs notes 
+rating =[]
 serie_liste_gauche = soup.find('div',attrs={'class':"leftseries"})
-#e = serie_liste_gauche.find(class_="numscore") #je cherche les notes de la liste
+#je cherche les notes de la liste
+list_gauche = serie_liste_gauche.find(class_="numscore")
 #b = serie_liste_gauche.find_all()
+for e in list_gauche:
+
+    petite_list= e.text
+     #j'ai remarqué que la note etait le debut d'un nouveau manga, faudrais que je retire /n avant et apres chaque /n
+     # solution une fonction qui des que je vois un chiffre je supprime le /n avant et apres
+    rating.append(e)
+print(rating)
+print("bonjour")
+
+#for e in list:
+        #si e  est egale a un chiffre alors je remove le /n jusqu'a ce que e= chaine de caractere
+        #probleme si le chiffre est de type string
+        #faudrais peut etre specifier que si e = [0-9] r strip, jusqu'a ce que j'ai e =! [0-9]
+        #si 
+
+       # if 
+    #e = e.get_(strip="\n")
+    #e.replace("\n"," ")
+    #ici je prends la liste des nom et leur note j'add a mon tableau
+    
+    
+
+    
+
+b= []
+
 #print(e.text)#afficher le text 
+
 list_serie = soup.find_all('a',attrs={'rel':"tag"})
-for e in list_serie:
-    print(e.text)
+#for e in list_serie:
+    #(e.text)
 tableau_nom =  []
 for e in list_serie:
     tableau_nom.append(e.text)
